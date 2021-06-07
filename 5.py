@@ -1,28 +1,24 @@
-//Так ка у меня нет задач, решенных  помощью классов, 
+//Так как у меня нет задач, решенных с помощью классов, 
 //ниже представлены названия классов, методов и объектов, 
-//какими бы они могли быть, если бы я решала задаи с использованием ООП.
+//какими бы они могли быть, если бы я решала задачи с использованием ООП.
 
-1. class TrafficLight(object), class Road(object), 
-// 14
-2. class Motorcycle(object)
-// 2
-3. Class Field(object), Class Game(object), Class Position(object)
-// 3
-4. class TextEditor(object)
-// 20
-5. Class Tree(object), Class Branch(object) 
-// 23
-
-
-1. def set_color(), def get_color(), def get_distance()
-// 14
-2. def get_distance()
-// 2
-3. def get_position()
-// 3
-4.def add_symbol(), def delete_symbol(), def undo_operation(), def redo_operation()
-// 20
-5. def add_branch(), def delete_btanch()
-// 23
-6.  
-7.
+1. class TrafficLight, class Road
+   def set_color(), def get_color(), def get_distance()
+   trLightStart = TrafficLight()
+   // задача 14
+2. class Motorcycle
+   def get_distance()
+   Moto_one = Motorcycle()
+   // задача 2
+3. сlass Field, сlass Game, сlass Position
+   def get_position()
+   a_field = Field([2,2, 3,4]), a_game = Game(a_field)
+   // задача 3
+4. class TextEditor
+   def add_symbol(), def delete_symbol(), def undo_operation(), def redo_operation()
+   stirng = TextEditor(), string.add_symbol('1')
+   // задача 20
+5. сlass Tree), сlass Branch
+   def add_branch(), def delete_btanch()
+   finfshTree = Tree() finfshTree.add_branch()
+   // задача 23
