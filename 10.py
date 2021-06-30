@@ -217,4 +217,194 @@ def rule_one(F):
     for i in range(1, length):
     // Дальше код
  
-11.
+11. Задача №2
+// Размещение переменной-счетчика непосредственно перед циклом:
+//Было
+        num = 0
+        sum_distance = 0
+        distance_all = 0
+        for index, number in enumerate(N):
+            if index%2 == 0:
+                speed = N[index]
+            else:
+                if num == 0:
+                    time = N[index]
+                    num=+1
+                    distance = speed*time  
+                else:
+                    time_new = N[index] - time
+                    time = N[index]
+                    distance = speed*time_new
+                sum_distance += distance
+        distance_all += sum_distance
+        return distance_all
+    else:
+        exit() 
+//Стало
+        sum_distance = 0
+        distance_all = 0
+        num = 0
+        for index, number in enumerate(N):
+            if index%2 == 0:
+                speed = N[index]
+            else:
+                if num == 0:
+                    time = N[index]
+                    num=+1
+                    distance = speed*time  
+                else:
+                    time_new = N[index] - time
+                    time = N[index]
+                    distance = speed*time_new
+                sum_distance += distance
+        distance_all += sum_distance
+        return distance_all
+    else:
+        exit()
+12. Задача № 3
+// Размещение переменной-счетчика непосредственно перед циклом:
+// Было 
+def ConquestCampaign(N, M, L, battalion):
+    board = [[0]*M for i in range(N)]
+    day = 1
+    count = N*M
+    
+    for i in range(0, 2*L, 2): 
+        x = battalion[i] - 1 
+        y = battalion[i+1] - 1 
+        if board[x][y] == 0:
+            board[x][y] = 1
+            count -= 1
+            
+    while count != 0:
+        new_board = [[board[i][j] for j in range(M)] for i in range(N)]
+        for i in range(N):
+            for j in range(M):
+                if board[i][j] == 1:
+                    for x, y in (i-1, j), (i, j-1), (i, j+1), (i+1, j):
+                        if 0 <= x < N and 0 <= y < M and new_board[x][y] == 0:
+                            new_board[x][y] = 1
+                            count -= 1
+        board = new_board
+        day += 1
+    return day
+// Стало
+def ConquestCampaign(N, M, L, battalion):
+    board = [[0]*M for i in range(N)]
+    count = N*M
+    
+    for i in range(0, 2*L, 2): 
+        x = battalion[i] - 1 
+        y = battalion[i+1] - 1 
+        if board[x][y] == 0:
+            board[x][y] = 1
+            count -= 1
+    
+    day = 1            
+    while count != 0:
+        new_board = [[board[i][j] for j in range(M)] for i in range(N)]
+        for i in range(N):
+            for j in range(M):
+                if board[i][j] == 1:
+                    for x, y in (i-1, j), (i, j-1), (i, j+1), (i+1, j):
+                        if 0 <= x < N and 0 <= y < M and new_board[x][y] == 0:
+                            new_board[x][y] = 1
+                            count -= 1
+        board = new_board
+        day += 1
+    return day
+
+13. Задача №12
+// Размещение переменной-счетчика непосредственно перед циклом:
+// Было
+def MassVote(N, Votes):
+    mx = Votes[0]
+    n = 0
+    for i in range(len(Votes)):
+        if Votes[i] > mx:
+            mx = Votes[i]
+    for i in range(len(Votes)):
+        if mx == Votes[i]:
+            n += 1
+    // Дальше код
+
+// Стало
+def MassVote(N, Votes):
+    mx = Votes[0]
+    for i in range(len(Votes)):
+        if Votes[i] > mx:
+            mx = Votes[i]
+    n = 0
+    for i in range(len(Votes)):
+        if mx == Votes[i]:
+            n += 1
+    // Дальше код
+
+14. Задача №14
+// Размещение переменной-счетчика непосредственно перед циклом:
+// Было
+def Unmanned(L, N, track):
+    num = 0
+    number_of_tr_light = 0
+    real_time = 0
+    for i in range(1, L+1):
+        tr_light = track[number_of_tr_light][0]
+        if i == tr_light:
+            real_time += 1
+            num += 1
+// Стало
+def Unmanned(L, N, track):
+    number_of_tr_light = 0
+    real_time = 0
+    num = 0
+    for i in range(1, L+1):
+        tr_light = track[number_of_tr_light][0]
+        if i == tr_light:
+            real_time += 1
+            num += 1
+15. Задача № 16
+// Размещение переменной-счетчика непосредственно перед циклом:
+// Было
+def create_matrix(N, price):
+    H = 3 
+    W = (int(N / H) + (N % H > 0)) 
+    result_S = []
+    result_S = [0] * W
+    a = 0
+    j = 0
+    n_elem = 0
+    for i in range(W):
+        result_S[i] = [0] * H
+    
+    for i in range(len(price)):
+        if n_elem < 3:
+            result_S[a][j] = int(price[i])
+            j += 1
+            n_elem += 1
+        if n_elem == 3:
+                a += 1
+                j = 0
+                n_elem = 0
+    return result_S
+// Стало
+def create_matrix(N, price):
+    H = 3 
+    W = (int(N / H) + (N % H > 0)) 
+    result_S = []
+    result_S = [0] * W
+    a = 0
+    j = 0
+    for i in range(W):
+        result_S[i] = [0] * H
+    
+    n_elem = 0    
+    for i in range(len(price)):
+        if n_elem < 3:
+            result_S[a][j] = int(price[i])
+            j += 1
+            n_elem += 1
+        if n_elem == 3:
+                a += 1
+                j = 0
+                n_elem = 0
+    return result_S
